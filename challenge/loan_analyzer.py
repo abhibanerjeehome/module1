@@ -21,6 +21,10 @@ loan_costs = [500, 600, 200, 1000, 450]
 number_of_loans = len(loan_costs)
 print(f"Number of Loans = {number_of_loans}")
 
+# Implied Constants (don't change)
+FUTURE_VALUE_KEY_NAME = "future_value"
+REMAINING_MONTHS_KEY_NAME = "remaining_months"
+
 # This function performs rounding down numbers to up to 2 decimal points
 def round_down_two_decimals(value):
     return str(round(value, 2))
@@ -73,8 +77,8 @@ loan = {
 # @TODO: Use get() on the dictionary of additional information to extract the Future Value and Remaining Months on the loan.
 # Print each variable.
 # YOUR CODE HERE!
-future_value = loan.get("future_value")
-remaining_months = loan.get("remaining_months")
+future_value = loan.get(FUTURE_VALUE_KEY_NAME)
+remaining_months = loan.get(REMAINING_MONTHS_KEY_NAME)
 print(f"Future Value = {future_value}")
 print(f"Remaining Months = {remaining_months}")
 
@@ -132,7 +136,7 @@ def calculate_present_value(future_value, remaining_months, annual_discount_rate
 # @TODO: Use the function to calculate the present value of the new loan given below.
 #    Use an `annual_discount_rate` of 0.2 for this new loan calculation.
 # YOUR CODE HERE!
-new_loan_present_value = calculate_present_value(new_loan.get("future_value"), new_loan.get("remaining_months"), 0.2)
+new_loan_present_value = calculate_present_value(new_loan.get(FUTURE_VALUE_KEY_NAME), new_loan.get(REMAINING_MONTHS_KEY_NAME), 0.2)
 print(f"The present value of the new loan is: {round_down_two_decimals(new_loan_present_value)}")
  
 """Part 4: Conditionally filter lists of loans.
